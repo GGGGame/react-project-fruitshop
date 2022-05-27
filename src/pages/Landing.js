@@ -1,6 +1,7 @@
 import Lemon from "../assets/2 1.png";
 import BlackBarry from "../assets/1 1.png";
 import { Logo } from "../components/Logo";
+import { Link } from "react-router-dom";
 // import Logo from "../assets/logo.png";
 
 export const Landing = () => {
@@ -26,9 +27,12 @@ export const Landing = () => {
             Vuoi avere i migliori frutti direttamente a casa tua? Visita il
             nostro shop
           </h2>
-          <button className="w-2/12 min-w-[124px] p-3 bg-[#F9E4C8]">
+          <Link
+            to="home"
+            className="w-2/12 text-center min-w-[124px] p-3 bg-[#F9E4C8]"
+          >
             Vai allo shop
-          </button>
+          </Link>
         </div>
       </div>
     </div>
