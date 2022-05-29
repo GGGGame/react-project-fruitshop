@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchData } from "../state/fetchData";
+import { fetchData, resetData } from "../state/fetchData";
 
 export const SearchFruit = () => {
   const [searchName, searchData] = useState("");
@@ -18,15 +18,28 @@ export const SearchFruit = () => {
     );
   };
 
+  const handleReset = (event) => {
+    event.preventDefault();
+
+    searchData("");
+    dispatch(resetData());
+    dispatch(fetchData("https://fruits-develhope.herokuapp.com/api"));
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} onReset={handleReset}>
       <input
         className="h-10 w-80 rounded-md outline-0"
         type="text"
         value={searchName}
         onChange={handleInput}
       />
-      <button type="submit">Search</button>
+      <button className="bg-[#F9CF93] rounded p-1 mr-1 ml-1" type="submit">
+        Search
+      </button>
+      <button className="bg-[#F9CF93] rounded p-1 mr-1 ml-1" type="reset">
+        Reset
+      </button>
     </form>
   );
 };

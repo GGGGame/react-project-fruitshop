@@ -6,6 +6,7 @@ export const fetchState = createSlice({
   reducers: {
     get: (state, action) => [...state, action.payload],
     edit: (state, action) => [action.payload],
+    reset: (state, action) => [],
   },
 });
 
@@ -17,7 +18,15 @@ export const fetchData = (url, name) => {
     if (name === "" || name === undefined) {
       dispatch(fetchState.actions.get(json.fruits));
     } else {
-      dispatch(fetchState.actions.edit(json.fruit));
+      dispatch(
+        fetchState.actions.edit(
+          json.fruits.filter((value) => value.name === name)
+        )
+      );
     }
   };
+};
+
+export const resetData = () => {
+  return (dispatch) => dispatch(fetchState.actions.reset());
 };
