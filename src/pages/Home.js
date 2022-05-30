@@ -1,9 +1,11 @@
-// import { useContext } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-// import { SearchContext } from "../context/searchContext";
+import { Details } from "../components/Details";
+import { useDetails } from "../hooks/useDetails";
 
 export const Home = () => {
   const fetchFruit = useSelector((state) => state.fetchFruit[0]);
+  const { details, onDetails } = useDetails(false);
 
   return (
     <div className="py-2 pl-16 pr-16">
@@ -11,6 +13,7 @@ export const Home = () => {
         Seleziona un Frutto
       </h1>
       <div className="flex max-h-4/5 flex-wrap justify-between overflow-auto">
+        {details && <Details isActive={details} />}
         {fetchFruit &&
           fetchFruit.map((value, index) => (
             <div
@@ -24,9 +27,11 @@ export const Home = () => {
               </div>
               <p className="ml-2">Lorem ipusm...</p>
               <div className="absolute bottom-0 flex w-full align-eng mb-1">
-                <button className="bg-[#F9CF93] rounded mr-auto ml-auto p-1">
+                <button
+                  onClick={() => onDetails(true)}
+                  className="bg-[#F9CF93] rounded mr-auto ml-auto p-1"
+                >
                   Dettagli
-                  {console.log(fetchFruit)}
                 </button>
               </div>
             </div>

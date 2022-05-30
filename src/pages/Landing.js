@@ -2,7 +2,6 @@ import Lemon from "../assets/2 1.png";
 import BlackBarry from "../assets/1 1.png";
 import { Logo } from "../components/Logo";
 import { Link } from "react-router-dom";
-// import Logo from "../assets/logo.png";
 
 export const Landing = () => {
   return (
