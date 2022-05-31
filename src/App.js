@@ -5,7 +5,7 @@ import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { Landing } from "./pages/Landing";
-import { getItem } from "./state/cartData";
+import { getItem, removeItem } from "./state/cartData";
 import { fetchData } from "./state/fetchData";
 
 function App() {
@@ -19,6 +19,10 @@ function App() {
 
   const buyFruit = (id) => {
     dispatch(getItem(id));
+  };
+
+  const removeFruit = (id) => {
+    dispatch(removeItem(id));
   };
 
   return (
@@ -37,7 +41,7 @@ function App() {
           path="home"
           element={
             <>
-              <Navbar cartData={testGet} />
+              <Navbar cartData={testGet} handleRemove={removeFruit} />
               <Home buyButton={buyFruit} />
               <Footer />
             </>

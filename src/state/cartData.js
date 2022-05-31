@@ -5,21 +5,19 @@ export const cartData = createSlice({
   initialState: [],
   reducers: {
     add: (state, action) => [...state, action.payload],
-    edit: (state, action) => {
-      state.map((value, index) => {
-        if (index !== action.payload.id) {
-          return {
-            ...action.payload,
-            value,
-          };
-        }
-      });
-    },
+    remove: (state, action) =>
+      state.filter((value, index) => index !== action.payload),
   },
 });
 
 export const getItem = (test) => {
   return (dispatch) => {
     dispatch(cartData.actions.add(test));
+  };
+};
+
+export const removeItem = (test) => {
+  return (dispatch) => {
+    dispatch(cartData.actions.remove(test));
   };
 };

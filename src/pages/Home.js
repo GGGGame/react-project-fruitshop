@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Details } from "../components/Details";
-import { getItem } from "../state/cartData";
 
 export const Home = ({ buyButton }) => {
   const fetchFruit = useSelector((state) => state.fetchFruit[0]);
@@ -29,6 +28,13 @@ export const Home = ({ buyButton }) => {
           Seleziona un Frutto
         </h1>
         <div className="flex max-h-4/5 flex-wrap justify-between overflow-auto">
+          {fetchFruit && fetchFruit.length <= 0 && (
+            <div className="w-full p-4">
+              <p className="w-1/3 mx-auto text-center p-4 bg-red-500 border border-1 border-red-800 rounded text-xl">
+                Can't find this fruit
+              </p>
+            </div>
+          )}
           {fetchFruit &&
             fetchFruit.map((value, index) => (
               <div

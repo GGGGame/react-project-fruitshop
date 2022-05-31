@@ -3,7 +3,7 @@ import { Cart } from "./Cart";
 import { Logo } from "./Logo";
 import { SearchFruit } from "./SearchFruit";
 
-export const Navbar = ({ cartData }) => {
+export const Navbar = ({ cartData, handleRemove }) => {
   const [cartOpen, setOpen] = useState(false);
 
   const openCart = (isActive) => {
@@ -21,7 +21,13 @@ export const Navbar = ({ cartData }) => {
         className={cartData.length > 0 ? "cart-amount" : "cart-zero"}
         onClick={() => openCart(true)}
       ></button>
-      {cartOpen && <Cart cartItems={cartData} cartClick={openCart} />}
+      {cartOpen && (
+        <Cart
+          cartItems={cartData}
+          cartClick={openCart}
+          removeItem={handleRemove}
+        />
+      )}
     </div>
   );
 };

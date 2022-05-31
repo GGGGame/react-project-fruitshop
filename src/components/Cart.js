@@ -1,6 +1,6 @@
 import TrashImg from "../assets/Rectangle 29.png";
 
-export const Cart = ({ cartItems, cartClick }) => {
+export const Cart = ({ cartItems, cartClick, removeItem }) => {
   return (
     <div className="fixed w-full h-screen z-10 bg-gray-400 bg-opacity-50">
       <div className="flex mt-32 justify-center w-full h-full">
@@ -20,7 +20,12 @@ export const Cart = ({ cartItems, cartClick }) => {
                     <span className="ml-4">{value.price}€</span>
                   </p>
                 </div>
-                <img className="h-1/2 my-auto" src={TrashImg} alt="delete" />
+                <img
+                  onClick={() => removeItem(index)}
+                  className="h-1/2 my-auto"
+                  src={TrashImg}
+                  alt="delete"
+                />
               </div>
             ))}
           </div>

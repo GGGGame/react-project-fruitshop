@@ -20,7 +20,9 @@ export const fetchData = (url, name) => {
     } else {
       dispatch(
         fetchState.actions.edit(
-          json.fruits.filter((value) => value.name === name)
+          json.fruits.filter(
+            (value) => value.name.toLowerCase() === name.toLowerCase()
+          )
         )
       );
     }
