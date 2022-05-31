@@ -2,7 +2,7 @@ export const Details = ({ detailsData, fruitData, buyData }) => {
   return (
     <div className="fixed top-0 h-screen w-full z-10 bg-gray-400 bg-opacity-50">
       <div className="flex justify-center w-full h-full">
-        <div className="w-[40rem] relative h-[30rem] bg-white border border-1 border-black">
+        <div className="w-[40rem] mt-32 relative h-[30rem] bg-white border border-1 border-black">
           <div className="flex relative max-h-5/6">
             <img className="w-1/2" src={fruitData.image} alt="fruitimage" />
             <div className="flex flex-col m-2">
