@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cart-amount,
+.cart-zero {
+  position: relative;
+  padding: 1.25rem 2rem;
+  margin-right: 2rem;
+  height: 100%;
+  align-self: center;
+}
+
+.cart-amount::before {
+  content: attr(data-items);
+  color: white;
+  font-size: 7px;
+  position: absolute;
+  padding-left: 3px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: 2px;
+  border-radius: 100%;
+  background-color: #ff7f00;
+}
+
+.cart-zero::after,
+.cart-amount::after {
+  content: url("./assets/31.png");
+}
